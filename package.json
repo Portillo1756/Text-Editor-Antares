@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "concurrently \"cd client && npm run build\"cd server && npm run server\" ",
+    "start:dev":  "concurrently \"cd client && npm run build\" \"cd server && npm run server\" ",
     "start": "npm run build && cd server && node server.js",
     "server": "cd server node server.js --ignore client",
     "build": "cd client && npm run build",
@@ -14,12 +14,13 @@
   "keywords": [],
   "author": "Andres",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {   
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
     "express": "^4.17.1",
     "if-env": "^1.0.4"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+
   }
 }
