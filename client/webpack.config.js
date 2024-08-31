@@ -26,16 +26,19 @@ module.exports = () => {
       // Injects the service worker file into the build process
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
       // Generates a manifest file for the PWA
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'PWA Webpack App',
         short_name: 'PWA',
         description: 'A simple progressive web application using webpack',
         background_color: '#ffffff',
         theme_color: '#fff',
-        start_url: './index.html',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
@@ -59,8 +62,9 @@ module.exports = () => {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            option:{
+            options:{
               presets: ['@babel/preset-env'],
+              plugIn: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime']
             },
           },
         },
