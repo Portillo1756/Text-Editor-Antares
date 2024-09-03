@@ -21,7 +21,8 @@ module.exports = () => {
       // Generates HTML file with the bundled assets
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'PWA Webpack app',
+        title: 'J.A.T.E'
+        // title: 'PWA Webpack app',
       }),
       // Injects the service worker file into the build process
       new InjectManifest({
@@ -32,9 +33,9 @@ module.exports = () => {
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'PWA Webpack App',
-        short_name: 'PWA',
-        description: 'A simple progressive web application using webpack',
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
+        description: 'Takes notes with Javascript syntax highlighting',
         background_color: '#ffffff',
         theme_color: '#fff',
         start_url: '/',
